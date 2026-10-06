@@ -1,0 +1,28 @@
+[project]
+name = "data_quality_pydantic_project"
+version = "0.1.0"
+description = "A project for ensuring data quality using Pydantic"
+authors = [
+    {name = "Frederico Carvalho",email = "64483575+hallyfred@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    "taskipy (>=1.14.1,<2.0.0)",
+    "pytest (>=9.1.1,<10.0.0)",
+    "mermaid (>=0.3.2,<0.4.0)",
+    "mkdocs (>=1.6.1,<2.0.0)",
+    "mkdocs-mermaid2-plugin (>=1.2.3,<2.0.0)",
+    "mkdocs-material (>=9.7.7,<10.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+test = "pytest -v"
+docs = "mkdocs serve"
+docs-build = "mkdocs build --strict"
+ci = "pytest && mkdocs build --strict"
